@@ -1,0 +1,35 @@
+{
+  "name": "redux-persist-transform-expire-in",
+  "version": "0.1.0",
+  "description": "redux-persist transform that reset the persisted redux data after a specific period of time",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sirLisko/redux-persist-transform-expire-in.git"
+  },
+  "keywords": [
+    "redux",
+    "redux-persist",
+    "redux-persist-transform",
+    "expire"
+  ],
+  "author": "Luca Lischetti <luca@sirlisko.com> (https://sirlisko.com)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/sirLisko/redux-persist-transform-expire-in/issues"
+  },
+  "homepage": "https://github.com/sirLisko/redux-persist-transform-expire-in#readme",
+  "peerDependencies": {
+    "redux": ">=4",
+    "redux-persist": ">=5"
+  },
+  "devDependencies": {
+    "eslint": "^5.10.0",
+    "eslint-config-prettier": "^3.3.0",
+    "eslint-plugin-prettier": "^3.0.0",
+    "prettier": "^1.15.3"
+  }
+}
