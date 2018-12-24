@@ -1,4 +1,4 @@
-# redux-persist-transform-expire-in
+# redux-persist-transform-expire-in [![Build Status][travis-image]][travis-url]
 
 > `redux-persist` transform that reset the persisted redux data after a specific period of time.
 
@@ -41,3 +41,6 @@ export const persistor = persistStore(store);
 
 In [`redux-persist-transform-expire`](https://github.com/gabceb/redux-persist-transform-expire) you need to add to your reducers a specific expireAt key.
 `redux-persist-transform-expire-in` is dealing with the whole state handled by `redux-persist`.
+
+[travis-image]: https://travis-ci.org/sirLisko/redux-persist-transform-expire-in.svg?branch=master
+[travis-url]: https://travis-ci.org/sirLisko/redux-persist-transform-expire-in
