@@ -4,7 +4,9 @@
   "description": "redux-persist transform that reset the persisted redux data after a specific period of time",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "lint": "eslint . --ext .jsx,.js",
+    "test": "npm run lint && jest",
+    "test:coverage": "jest --coverage"
   },
   "repository": {
     "type": "git",
@@ -30,6 +32,8 @@
     "eslint": "^5.10.0",
     "eslint-config-prettier": "^3.3.0",
     "eslint-plugin-prettier": "^3.0.0",
+    "jest": "^23.6.0",
+    "mockdate": "^2.0.2",
     "prettier": "^1.15.3"
   }
 }

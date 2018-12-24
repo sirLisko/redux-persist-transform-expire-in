@@ -5,13 +5,13 @@ module.exports = (expireIn, expireKey = "persistencyExpiration") => {
   const now = new Date().getTime();
   const expired = !isNaN(expiring) && now > expiring;
   return reduxPersist.createTransform(
-    (inboundState, key) => {
+    inboundState => {
       setTimeout(
         () => localStorage.setItem(expireKey, new Date().getTime() + expireIn),
         0
       );
       return inboundState;
     },
-    (outboundState, key) => (expired ? {} : outboundState)
+    outboundState => (expired ? {} : outboundState)
   );
 };
