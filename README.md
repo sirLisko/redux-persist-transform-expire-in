@@ -1,9 +1,16 @@
-# redux-persist-transform-expire-in [![Build Status][travis-image]][travis-url]
+# redux-persist-transform-expire-in [![npm][npm-image]][npm-url] [![Build Status][travis-image]][travis-url] [![Coverage Status][coverage-image]][coverage-url]
 
 > `redux-persist` transform that reset the persisted redux data after a specific period of time.
 
-It creates in the localStorage a property with the expiration date of the redux-persist.
+It creates in the localStorage a property with the expiration date of the [`redux-persist`](https://github.com/rt2zz/redux-persist).
+
 Every time the state is updated the expiration date is postponed.
+
+## Install
+
+```bash
+npm install redux-persist-transform-expire-in
+```
 
 ## Example
 
@@ -42,5 +49,9 @@ export const persistor = persistStore(store);
 In [`redux-persist-transform-expire`](https://github.com/gabceb/redux-persist-transform-expire) you need to add to your reducers a specific expireAt key.
 `redux-persist-transform-expire-in` is dealing with the whole state handled by `redux-persist`.
 
+[npm-image]: https://img.shields.io/npm/v/redux-persist-transform-expire-in.svg
+[npm-url]: https://npmjs.com/package/redux-persist-transform-expire-in
 [travis-image]: https://travis-ci.org/sirLisko/redux-persist-transform-expire-in.svg?branch=master
 [travis-url]: https://travis-ci.org/sirLisko/redux-persist-transform-expire-in
+[coverage-image]: https://coveralls.io/repos/github/sirLisko/redux-persist-transform-expire-in/badge.svg?branch=master
+[coverage-url]: https://coveralls.io/github/sirLisko/redux-persist-transform-expire-in?branch=master
