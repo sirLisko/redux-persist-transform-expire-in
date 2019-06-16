@@ -1,7 +1,7 @@
 {
   "name": "redux-persist-transform-expire-in",
   "version": "0.1.0",
-  "description": "redux-persist transform that reset the persisted redux data after a specific period of time",
+  "description": "redux-persist transform that reset the persisted redux state after a specific period of time",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "scripts": {

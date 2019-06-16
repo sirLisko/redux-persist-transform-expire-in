@@ -6,13 +6,13 @@ import {
 } from "redux-persist";
 
 /**
- * transformExpire `redux-persist` transformer that reset the persisted redux data after a specific period of time.
- * @param number For how long the state is going to be preserved
- * @param string? Key used by the localStorage
+ * `redux-persist` transformer that reset the persisted redux state after a specific period of time.
+ * @param {number} expireIn For how long the state is going to be preserved
+ * @param {string} [expireKey="persistencyExpiration"] Key used by the localStorage
  */
 const transformExpire = (
   expireIn: number,
-  expireKey = "persistencyExpiration"
+  expireKey: string = "persistencyExpiration"
 ): Transform<any, any> => {
   let expired = false;
   const storedExpiration = localStorage.getItem(expireKey);
