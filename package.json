@@ -2,9 +2,12 @@
   "name": "redux-persist-transform-expire-in",
   "version": "0.1.0",
   "description": "redux-persist transform that reset the persisted redux data after a specific period of time",
-  "main": "index.js",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
   "scripts": {
-    "lint": "eslint . --ext .jsx,.js",
+    "prepublish": "npm run build",
+    "build": "tsc",
+    "lint": "eslint . --ext .ts",
     "test": "npm run lint && jest",
     "test:coverage": "jest --coverage"
   },
@@ -29,12 +32,22 @@
     "redux-persist": ">=5"
   },
   "devDependencies": {
+    "@types/jest": "^24.0.15",
+    "@types/mockdate": "^2.0.0",
+    "@types/react": "^16.8.20",
+    "@typescript-eslint/eslint-plugin": "^1.10.2",
+    "@typescript-eslint/parser": "^1.10.2",
     "coveralls": "^3.0.3",
-    "eslint": "^5.10.0",
-    "eslint-config-prettier": "^3.3.0",
-    "eslint-plugin-prettier": "^3.0.0",
-    "jest": "^23.6.0",
+    "eslint": "^5.16.0",
+    "eslint-config-prettier": "^4.3.0",
+    "eslint-plugin-prettier": "^3.1.0",
+    "jest": "^24.8.0",
     "mockdate": "^2.0.2",
-    "prettier": "^1.15.3"
+    "prettier": "^1.18.2",
+    "react": "^16.8.6",
+    "redux": "^4.0.1",
+    "redux-persist": "^5.10.0",
+    "ts-jest": "^24.0.2",
+    "typescript": "^3.5.1"
   }
 }
