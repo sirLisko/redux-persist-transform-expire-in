@@ -27,15 +27,19 @@ const transformExpire = (
   }
 
   return createTransform(
-    (inboundState: TransformIn<string, string>) => {
-      setTimeout(() => {
+    (
+      inboundState: TransformIn<string, string>
+    ): TransformIn<string, string> => {
+      setTimeout((): void => {
         const expireValue = (new Date().getTime() + expireIn).toString();
         localStorage.setItem(expireKey, expireValue);
       }, 0);
 
       return inboundState;
     },
-    (outboundState: TransformOut<string, string>) =>
+    (
+      outboundState: TransformOut<string, string>
+    ): TransformOut<string, string> | any =>
       expired ? defaultValue : outboundState
   );
 };
