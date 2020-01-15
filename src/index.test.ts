@@ -79,4 +79,15 @@ describe("redux-persist-transform-expire-in", () => {
     expect(createTransformMock).toHaveBeenCalled();
     expect(createTransformMock.mock.calls[0][1]({ foo: "bar" })).toEqual({});
   });
+
+  it("should return default the state if expired", () => {
+    localStorage.setItem(
+      "persistencyExpiration",
+      new Date().getTime().toString(),
+    );
+    mockdate.set("1/3/2000");
+    expireIn(oneDay, 'persistencyExpiration', []);
+    expect(createTransformMock).toHaveBeenCalled();
+    expect(createTransformMock.mock.calls[0][1]({ foo: "bar" })).toEqual([]);
+  });
 });

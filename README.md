@@ -29,7 +29,7 @@ const expirationKey = "expirationKey";
 const persistConfig = {
   key: "v1",
   storage,
-  transforms: [expireIn(expireIn, expirationKey)]
+  transforms: [expireIn(expireIn, expirationKey, [])]
 };
 
 const persistedReducer = persistCombineReducers(persistConfig, reducer);
@@ -43,6 +43,7 @@ export const persistor = persistStore(store);
 | ------------- | ------ | ----------------------- | ----------------------------------------------- |
 | expireIn      | Number | none                    | For how long the state is going to be preserved |
 | expirationKey | String | 'persistencyExpiration' | Key used by the localStorage                    |
+| defaultValue  | any    | {}                      | Value to which state will be cleared to         |
 
 ## Difference with `redux-persist-transform-expire`
 
