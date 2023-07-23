@@ -9,6 +9,8 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
+    env:
+      github-token: ${{ secrets.GITHUB_TOKEN }}
     steps:
       - uses: actions/checkout@v3
       - uses: pnpm/action-setup@v2
@@ -24,8 +26,10 @@ jobs:
       - name: Run linter
         run: pnpm run lint
       - name: Run tests
-        run: pnpm run test
+        run: pnpm run test:coverage
       - name: Build
         run: pnpm run build
-      - name: Publish coverage
-        run: cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js && rm -rf ./coverage
+      - name: Upload coverage reports to Codecov
+        uses: codecov/codecov-action@v3
+        env:
+          CODECOV_TOKEN: ${{ secrets.CODECOV_TOKEN }}

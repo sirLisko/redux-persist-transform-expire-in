@@ -52,5 +52,5 @@ In [`redux-persist-transform-expire`](https://github.com/gabceb/redux-persist-tr
 
 [npm-image]: https://img.shields.io/npm/v/redux-persist-transform-expire-in.svg
 [npm-url]: https://npmjs.com/package/redux-persist-transform-expire-in
-[coverage-image]: https://coveralls.io/repos/github/sirLisko/redux-persist-transform-expire-in/badge.svg?branch=master
-[coverage-url]: https://coveralls.io/github/sirLisko/redux-persist-transform-expire-in?branch=master
+[coverage-image]: https://codecov.io/gh/sirLisko/redux-persist-transform-expire-in/branch/master/graph/badge.svg?token=meelllHB2x
+[coverage-url]: https://codecov.io/gh/sirLisko/redux-persist-transform-expire-in
