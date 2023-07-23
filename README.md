@@ -29,7 +29,7 @@ const expirationKey = "expirationKey";
 const persistConfig = {
   key: "v1",
   storage,
-  transforms: [expireIn(expireIn, expirationKey, [])]
+  transforms: [expireIn(expireIn, expirationKey, [])],
 };
 
 const persistedReducer = persistCombineReducers(persistConfig, reducer);
