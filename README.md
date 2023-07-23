@@ -18,7 +18,7 @@ pnpm install redux-persist-transform-expire-in
 import { createStore, applyMiddleware } from "redux";
 import { persistStore, persistCombineReducers } from "redux-persist";
 import storage from "redux-persist/lib/storage";
-import expireIn from "redux-persist-transform-expire-in";
+import expireInTransform from "redux-persist-transform-expire-in";
 
 const reducers = {
   // your reducers
@@ -29,7 +29,7 @@ const expirationKey = "expirationKey";
 const persistConfig = {
   key: "v1",
   storage,
-  transforms: [expireIn(expireIn, expirationKey, [])],
+  transforms: [expireInTransform(expireIn, expirationKey, [])],
 };
 
 const persistedReducer = persistCombineReducers(persistConfig, reducer);
