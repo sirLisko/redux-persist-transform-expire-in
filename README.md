@@ -6,10 +6,12 @@ It creates in the localStorage a property with the expiration date of the [`redu
 
 Every time the state is updated the expiration date is postponed.
 
+See a live demo at [https://codesandbox.io/s/redux-persist-transform-expire-in-lmj74q](https://codesandbox.io/s/redux-persist-transform-expire-in-lmj74q).
+
 ## Install
 
 ```bash
-pnpm install redux-persist-transform-expire-in
+npm install redux-persist-transform-expire-in
 ```
 
 ## Example
