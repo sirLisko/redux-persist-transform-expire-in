@@ -2,7 +2,7 @@ import {
   createTransform,
   Transform,
   TransformIn,
-  TransformOut
+  TransformOut,
 } from "redux-persist";
 
 /**
@@ -17,7 +17,11 @@ const transformExpire = (
   expireKey: string = "persistencyExpiration",
   defaultValue = {}
 ): Transform<any, any> => {
-  const storedExpiration = localStorage.getItem(expireKey);
+  let storedExpiration;
+  try {
+    storedExpiration = localStorage.getItem(expireKey);
+  } catch (e) {}
+
   let expired = false;
 
   if (storedExpiration) {
@@ -32,7 +36,9 @@ const transformExpire = (
     ): TransformIn<string, string> => {
       setTimeout((): void => {
         const expireValue = (new Date().getTime() + expireIn).toString();
-        localStorage.setItem(expireKey, expireValue);
+        try {
+          localStorage.setItem(expireKey, expireValue);
+        } catch (e) {}
       }, 0);
 
       return inboundState;
