@@ -1,4 +1,4 @@
-# redux-persist-transform-expire-in [![npm][npm-image]][npm-url] [![Build Status][travis-image]][travis-url] [![Coverage Status][coverage-image]][coverage-url]
+# redux-persist-transform-expire-in [![npm][npm-image]][npm-url] [![Coverage Status][coverage-image]][coverage-url]
 
 > `redux-persist` transform that reset the persisted redux data after a specific period of time.
 
@@ -9,7 +9,7 @@ Every time the state is updated the expiration date is postponed.
 ## Install
 
 ```bash
-npm install redux-persist-transform-expire-in
+pnpm install redux-persist-transform-expire-in
 ```
 
 ## Example
@@ -18,7 +18,7 @@ npm install redux-persist-transform-expire-in
 import { createStore, applyMiddleware } from "redux";
 import { persistStore, persistCombineReducers } from "redux-persist";
 import storage from "redux-persist/lib/storage";
-import expireIn from "redux-persist-transform-expire-in";
+import expireInTransform from "redux-persist-transform-expire-in";
 
 const reducers = {
   // your reducers
@@ -29,7 +29,7 @@ const expirationKey = "expirationKey";
 const persistConfig = {
   key: "v1",
   storage,
-  transforms: [expireIn(expireIn, expirationKey, [])]
+  transforms: [expireInTransform(expireIn, expirationKey, [])],
 };
 
 const persistedReducer = persistCombineReducers(persistConfig, reducer);
@@ -52,7 +52,5 @@ In [`redux-persist-transform-expire`](https://github.com/gabceb/redux-persist-tr
 
 [npm-image]: https://img.shields.io/npm/v/redux-persist-transform-expire-in.svg
 [npm-url]: https://npmjs.com/package/redux-persist-transform-expire-in
-[travis-image]: https://travis-ci.org/sirLisko/redux-persist-transform-expire-in.svg?branch=master
-[travis-url]: https://travis-ci.org/sirLisko/redux-persist-transform-expire-in
-[coverage-image]: https://coveralls.io/repos/github/sirLisko/redux-persist-transform-expire-in/badge.svg?branch=master
-[coverage-url]: https://coveralls.io/github/sirLisko/redux-persist-transform-expire-in?branch=master
+[coverage-image]: https://codecov.io/gh/sirLisko/redux-persist-transform-expire-in/branch/master/graph/badge.svg?token=meelllHB2x
+[coverage-url]: https://codecov.io/gh/sirLisko/redux-persist-transform-expire-in

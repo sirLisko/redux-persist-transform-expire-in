@@ -3,7 +3,7 @@ import mockdate from "mockdate";
 
 import reduxPersist from "redux-persist";
 jest.mock("redux-persist", () => ({
-  createTransform: jest.fn()
+  createTransform: jest.fn(),
 }));
 
 const oneDay = 24 * 60 * 60 * 1000;
@@ -15,7 +15,7 @@ describe("redux-persist-transform-expire-in", () => {
 
   const createTransformMock = jest.spyOn(
     reduxPersist,
-    "createTransform"
+    "createTransform",
   ) as any;
   createTransformMock.mockImplementation(() => {});
 
@@ -26,14 +26,14 @@ describe("redux-persist-transform-expire-in", () => {
     localStorage.removeItem("exp");
   });
 
-  it("should write the expiration time in the localStorage", done => {
+  it("should write the expiration time in the localStorage", (done) => {
     expireIn(oneDay, "exp");
     expect(createTransformMock.mock.calls[0][0]({ foo: "bar" })).toEqual({
-      foo: "bar"
+      foo: "bar",
     });
     setTimeout(() => {
-      expect(parseInt(localStorage.getItem("exp"))).toBe(
-        new Date(2000, 0, 2).getTime()
+      expect(Number(localStorage.getItem("exp"))).toBe(
+        new Date(2000, 0, 2).getTime(),
       );
       done();
     }, 1);
@@ -44,7 +44,7 @@ describe("redux-persist-transform-expire-in", () => {
     expireIn(oneDay);
     expect(createTransformMock).toHaveBeenCalled();
     expect(createTransformMock.mock.calls[0][1]({ foo: "bar" })).toEqual({
-      foo: "bar"
+      foo: "bar",
     });
   });
 
@@ -53,26 +53,26 @@ describe("redux-persist-transform-expire-in", () => {
     expireIn(oneDay);
     expect(createTransformMock).toHaveBeenCalled();
     expect(createTransformMock.mock.calls[0][1]({ foo: "bar" })).toEqual({
-      foo: "bar"
+      foo: "bar",
     });
   });
 
   it("should return the state if not expired", () => {
     localStorage.setItem(
       "persistencyExpiration",
-      (new Date().getTime() + oneDay).toString()
+      (new Date().getTime() + oneDay).toString(),
     );
     expireIn(oneDay);
     expect(createTransformMock).toHaveBeenCalled();
     expect(createTransformMock.mock.calls[0][1]({ foo: "bar" })).toEqual({
-      foo: "bar"
+      foo: "bar",
     });
   });
 
   it("should not return the state if expired", () => {
     localStorage.setItem(
       "persistencyExpiration",
-      new Date().getTime().toString()
+      new Date().getTime().toString(),
     );
     mockdate.set("1/3/2000");
     expireIn(oneDay);
@@ -86,7 +86,7 @@ describe("redux-persist-transform-expire-in", () => {
       new Date().getTime().toString(),
     );
     mockdate.set("1/3/2000");
-    expireIn(oneDay, 'persistencyExpiration', []);
+    expireIn(oneDay, "persistencyExpiration", []);
     expect(createTransformMock).toHaveBeenCalled();
     expect(createTransformMock.mock.calls[0][1]({ foo: "bar" })).toEqual([]);
   });
