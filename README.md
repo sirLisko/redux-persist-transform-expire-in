@@ -9,7 +9,7 @@ Every time the state is updated the expiration date is postponed.
 ## Install
 
 ```bash
-npm install redux-persist-transform-expire-in
+pnpm install redux-persist-transform-expire-in
 ```
 
 ## Example

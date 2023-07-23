@@ -10,7 +10,8 @@
     "lint": "eslint . --ext .ts",
     "prepublish": "npm run build",
     "test": "jest",
-    "test:coverage": "jest --coverage"
+    "test:coverage": "jest --coverage",
+    "typecheck": "tsc"
   },
   "repository": {
     "type": "git",
