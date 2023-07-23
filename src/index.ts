@@ -1,9 +1,4 @@
-import {
-  createTransform,
-  Transform,
-  TransformIn,
-  TransformOut,
-} from "redux-persist";
+import { createTransform } from "redux-persist";
 
 /**
  * `redux-persist` transformer that reset the persisted redux state after a specific period of time.
@@ -15,8 +10,8 @@ import {
 const transformExpire = (
   expireIn: number,
   expireKey: string = "persistencyExpiration",
-  defaultValue = {}
-): Transform<any, any> => {
+  defaultValue = {},
+) => {
   let storedExpiration;
   try {
     storedExpiration = localStorage.getItem(expireKey);
@@ -31,9 +26,7 @@ const transformExpire = (
   }
 
   return createTransform(
-    (
-      inboundState: TransformIn<string, string>
-    ): TransformIn<string, string> => {
+    (inboundState) => {
       setTimeout((): void => {
         const expireValue = (new Date().getTime() + expireIn).toString();
         try {
@@ -43,10 +36,7 @@ const transformExpire = (
 
       return inboundState;
     },
-    (
-      outboundState: TransformOut<string, string>
-    ): TransformOut<string, string> | any =>
-      expired ? defaultValue : outboundState
+    (outboundState) => (expired ? defaultValue : outboundState),
   );
 };
 
