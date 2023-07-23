@@ -1,6 +1,6 @@
 {
   "name": "redux-persist-transform-expire-in",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "description": "redux-persist transform that reset the persisted redux state after a specific period of time",
   "main": "dist/index.js",
   "module": "dist/index.mjs",
