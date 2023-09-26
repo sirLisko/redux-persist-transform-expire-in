@@ -22,7 +22,7 @@ const transformExpire = (
   if (storedExpiration) {
     const expiring = parseInt(storedExpiration);
     const now = new Date().getTime();
-    expired = !isNaN(expiring) && now > expiring;
+    expired = Boolean(expiring) && !isNaN(expiring) && now > expiring;
   }
 
   return createTransform(
