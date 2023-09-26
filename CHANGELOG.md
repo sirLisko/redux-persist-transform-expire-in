@@ -1,5 +1,11 @@
 # redux-persist-transform-expire-in
 
+## 1.1.2
+
+### Patch Changes
+
+- 383233f: When the module is added as transform, it returns the current persisted store, if present.
+
 ## 1.1.1
 
 ### Patch Changes
